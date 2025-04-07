@@ -10,7 +10,7 @@ public class Transaction {
 	private final UUID identifier;
 	private final int recipientId;
 	private final int senderId;
-	private TransferCategory transferCategory;
+	private final TransferCategory transferCategory;
 	private final int transferAmount;
 
 	public Transaction(int recipientId, int senderId, TransferCategory transferCategory, int transferAmount)
