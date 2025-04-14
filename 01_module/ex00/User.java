@@ -9,6 +9,10 @@ public class User
 		this.identifier = identifier;
 		this.name = name;
 		this.balance = balance;
+
+		if (this.balance < 0) {
+			throw new RuntimeException("Balance cannot be negative");
+		}
 	}
 
 	public int getIdentifier() {
