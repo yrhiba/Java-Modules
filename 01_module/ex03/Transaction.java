@@ -22,6 +22,10 @@ public class Transaction {
 		this.transferAmount = transferAmount;
 	}
 
+	public UUID getUUID() {
+		return this.identifier;
+	}
+
 	public String getTransactionSummary() {
 		String res = "Identifier: " + this.identifier;
 		res += ", recipientId: " + this.recipientId;
