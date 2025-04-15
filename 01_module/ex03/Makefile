@@ -2,6 +2,10 @@ JAVAC = javac
 
 JAVA_SOURCES = \
 	Program.java \
+	Transaction.java \
+	TransactionNotFoundException.java \
+	TransactionsLinkedList.java \
+	TransactionsList.java \
 	User.java \
 	UserIdsGenerator.java \
 	UserNotFoundException.java \

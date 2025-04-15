@@ -18,8 +18,7 @@ public class Program {
 
 		/* 
 			TOADD: 
-			- test getting invalid id|index.
-			- add more than 10 users and check size.
+			- test Transactions List
 		*/
 	}
 }
