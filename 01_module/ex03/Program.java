@@ -16,9 +16,13 @@ public class Program {
 			System.out.println("user getted by index -> " + getUserInfo(users.getUserByIndex(i)));
 		}
 
-		/* 
-			TOADD: 
-			- test Transactions List
-		*/
+		// example getting user by index
+		User u1 = users.getUserByIndex(0);
+
+		// example getting transaction list of a user
+		TransactionsList list = u1.getTransactionsList();
+
+		// example of adding transactions
+		list.addTransaction(new Transaction(1, 0, Transaction.TransferCategory.INCOME, 100));
 	}
 }
