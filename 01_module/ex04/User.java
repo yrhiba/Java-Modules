@@ -35,6 +35,14 @@ public class User
 		return this.transactionsList;
 	}
 
+	public void addTransaction(Transaction transaction) {
+		this.transactionsList.addTransaction(transaction);
+		this.balance += transaction.getTransferAmount();
+		if (this.balance < 0) {
+			throw new IllegalTransactionException("IllegalTransactionException");
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "User[id=" + id + ", name=" + name + ", balance=" + balance + "]";
