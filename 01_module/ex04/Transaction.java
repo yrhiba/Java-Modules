@@ -13,9 +13,9 @@ public class Transaction {
 	private final TransferCategory transferCategory;
 	private final int transferAmount;
 
-	public Transaction(int recipientId, int senderId, TransferCategory transferCategory, int transferAmount)
+	public Transaction(UUID id, int recipientId, int senderId, TransferCategory transferCategory, int transferAmount)
 	{
-		this.identifier = UUID.randomUUID();
+		this.identifier = id;
 		this.recipientId = recipientId;
 		this.senderId = senderId;
 		this.transferCategory = transferCategory;
@@ -26,12 +26,30 @@ public class Transaction {
 		return this.identifier;
 	}
 
-	public String getTransactionSummary() {
-		String res = "Identifier: " + this.identifier;
-		res += ", recipientId: " + this.recipientId;
-		res += ", senderId: " + this.senderId;
-		res += ", transferCategory: " + this.transferCategory;
-		res += ", transferAmount: " + this.transferAmount;
-		return res;
+	public TransferCategory getTransferCategory() {
+		return this.transferCategory;
+	}
+
+	public int getTransferAmount() {
+		return this.transferAmount;
+	}
+	
+	public int getrecipientId() {
+		return this.recipientId;
+	}
+
+	public int getsenderId() {
+		return this.senderId;
+	}
+
+	@Override
+	public String toString() {
+		return "Transaction[" +
+			"identifier=" + this.identifier +
+			", recipientId=" + this.recipientId +
+			", senderId=" + this.senderId +
+			", transferCategory=" + this.transferCategory +
+			", transferAmount=" + this.transferAmount +
+			"]";
 	}
 }
