@@ -1,28 +1,26 @@
 public class Program {
-
-	static String getUserInfo(User user) {
-		return "name: " + user.getName() + ", balance: " + user.getBalance();
-	}
-
 	static public void main(String[] args) {
 
-		UsersArrayList users = new UsersArrayList();
+		TransactionsService service = new TransactionsService();
 
-		users.addUser(new User("rich king", 9999));
-		users.addUser(new User("poor man", 0));
+		service.addUser(new User("CEO", 999999));
 
-		System.out.println("Users size: " + users.getUsersSize() + ", List-of-Users: ");
-		for (int i = 0; i < users.getUsersSize(); i++) {
-			System.out.println("user getted by index -> " + getUserInfo(users.getUserByIndex(i)));
+		service.addUser(new User("Developer", 4000));
+
+		service.transfer(0, 1, 1000);
+
+		System.out.println("CEO Balance: " + service.getUserBalance(0));
+		System.out.println("Developer Balance: " + service.getUserBalance(1));
+
+
+		Transaction[] CeoTransactions = service.geTransactionsList(0);
+		service.removeTransaction(CeoTransactions[0].getUUID(), 0);
+
+		Transaction[] list = service.getUnpairedTransactions();
+
+		System.out.println("Service Unpaired Transaction: ");
+		for (Transaction transaction : list) {
+			System.out.println(transaction);
 		}
-
-		// example getting user by index
-		User u1 = users.getUserByIndex(0);
-
-		// example getting transaction list of a user
-		TransactionsList list = u1.getTransactionsList();
-
-		// example of adding transactions
-		list.addTransaction(new Transaction(1, 0, Transaction.TransferCategory.INCOME, 100));
 	}
 }
